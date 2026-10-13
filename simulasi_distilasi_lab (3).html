@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simulasi Distilasi Fraksinasi Vakum - Skala Laboratorium</title>
+<style>
+:root{--bg:#f4f6f2;--card:#fff;--tx:#1d2a22;--mu:#5b6b60;--ac:#2f7d5b;--bd:#d8dfd6;--st:#38423c;--gl:rgba(120,180,230,.13);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111815;--card:#1b2620;--tx:#e6efe9;--mu:#9fb2a6;--bd:#2c3a32;--st:#b8c8be;--gl:rgba(120,180,230,.12)}}
+:root[data-theme="dark"]{--bg:#111815;--card:#1b2620;--tx:#e6efe9;--mu:#9fb2a6;--bd:#2c3a32;--st:#b8c8be;--gl:rgba(120,180,230,.12)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,Segoe UI,sans-serif}
+main{max-width:1000px;margin:auto;padding:14px}h1{font-size:1.3rem;margin:4px 0}p.s{margin:0 0 8px;color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin:10px 0}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+button{font:inherit;padding:8px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx);cursor:pointer}
+button.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+label{display:block;font-weight:600;font-size:.88rem;margin-top:6px}input[type=range],select{width:100%;accent-color:var(--ac)}
+select{padding:6px;font:inherit;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:6px}
+svg{width:100%;height:auto;display:block}svg text{fill:var(--tx);font-size:11px;font-family:inherit}
+.gs{stroke:var(--st);stroke-width:1.8;fill:var(--gl)}.ln{stroke:var(--st);stroke-width:1.8;fill:none}.tb{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bd text{fill:#fff;font-weight:700;font-size:11px}
+.leg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:4px 16px;font-size:.88rem}
+.leg b{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;background:var(--ac);color:#fff;font-size:.78rem;margin-right:6px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.85rem}th,td{padding:5px 6px;border-bottom:1px solid var(--bd);text-align:left}th{color:var(--mu)}
+#log{height:130px;overflow:auto;font:12px/1.5 ui-monospace,monospace;color:var(--mu)}.v{font-weight:700}.mu{color:var(--mu);font-size:.85rem}
+</style></head><body><main>
+<h1>Simulasi Distilasi Fraksinasi Vakum (Skala Laboratorium)</h1>
+<p class="s">Isolasi Senyawa Linalool dari Minyak Atsiri Rimpang Nampu (Homalomena occulta) dengan Metode Distilasi Fraksinasi Vakum. Media Pembelajaran ini disusun oleh: Erlis Yuana, Alawia Chusna, Septi Ayu Ambarsari, Rizka Utami, Fitria Nurinnihayati, dan Gilang Yuda Pratama.</p>
+<div class="card">
+<svg viewBox="0 0 800 585" role="img" aria-label="Rangkaian distilasi fraksinasi vakum skala laboratorium">
+<defs><clipPath id="fc"><circle cx="225" cy="448" r="53"/></clipPath>
+<pattern id="pk" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="var(--st)"/><circle cx="6" cy="6" r="1.5" fill="var(--st)"/></pattern></defs>
+<line x1="0" y1="548" x2="800" y2="548" class="ln"/>
+<!-- statif -->
+<line x1="330" y1="100" x2="330" y2="548" class="ln" stroke-width="4"/><rect x="310" y="536" width="40" height="12" class="ln"/>
+<line x1="245" y1="300" x2="330" y2="300" class="ln" stroke-width="5"/><rect x="203" y="294" width="44" height="12" rx="2" fill="var(--st)" opacity=".35" class="ln"/>
+<line x1="237" y1="385" x2="330" y2="385" class="ln" stroke-width="5"/><rect x="211" y="379" width="28" height="12" rx="2" fill="var(--st)" opacity=".35" class="ln"/>
+<line x1="330" y1="250" x2="420" y2="250" class="ln" stroke-width="5"/>
+<!-- 1 thermo control -->
+<rect x="4" y="478" width="98" height="70" rx="6" fill="var(--card)" class="ln"/><rect x="10" y="486" width="86" height="34" rx="3" fill="#0d1a12"/>
+<text id="dSet" x="14" y="500" style="fill:#ff7a5a;font:bold 11px ui-monospace,monospace">SET 25</text><text id="dPot" x="14" y="514" style="fill:#7dffb0;font:bold 11px ui-monospace,monospace">PV 25.0</text>
+<circle cx="24" cy="534" r="5" class="ln"/><circle cx="52" cy="534" r="5" class="ln"/><circle cx="84" cy="534" r="5" fill="#d33" stroke="var(--st)"/>
+<path d="M102 505 Q145 520 175 472" class="ln" stroke-width="1.4"/>
+<!-- 2 pemanas -->
+<rect x="150" y="518" width="140" height="30" rx="5" fill="var(--card)" class="ln"/><circle cx="256" cy="533" r="6" class="ln"/><circle cx="274" cy="533" r="6" class="ln"/>
+<rect x="165" y="503" width="120" height="15" rx="2" fill="var(--st)" opacity=".3" class="ln"/><rect id="glow" x="170" y="514" width="110" height="4" fill="#ff5a2a" opacity="0"/>
+<!-- 3 labu -->
+<circle cx="225" cy="448" r="55" class="gs"/><rect id="liq" x="165" y="430" width="120" height="80" fill="#f0dc6e" opacity=".85" clip-path="url(#fc)"/>
+<g id="bub" clip-path="url(#fc)"></g><g id="stir" transform="translate(225 495)"><rect x="-10" y="-3" width="20" height="6" rx="3" fill="#fff" stroke="var(--st)"/></g>
+<rect x="213" y="370" width="24" height="26" class="gs"/>
+<!-- 5 kolom -->
+<rect x="207" y="150" width="36" height="222" class="gs"/><rect x="210" y="154" width="30" height="214" fill="url(#pk)" opacity=".85"/>
+<rect id="vap" x="210" y="368" width="30" height="0" fill="#9fd4ff" opacity=".4"/><g id="vd"></g>
+<!-- 8 head + termometer, 7 reflux -->
+<rect x="207" y="122" width="36" height="28" class="gs"/><rect x="215" y="100" width="20" height="22" rx="3" fill="#8a6b4a" opacity=".6" class="ln"/>
+<line x1="225" y1="58" x2="225" y2="130" stroke="var(--st)" stroke-width="3"/><circle cx="225" cy="132" r="4" fill="#d33"/>
+<rect x="190" y="40" width="72" height="18" rx="3" fill="#0d1a12"/><text id="dHead" x="195" y="53" style="fill:#7dffb0;font:bold 11px ui-monospace,monospace">T 25.0</text>
+<rect x="243" y="120" width="20" height="16" rx="2" fill="#222"/><rect x="250" y="108" width="6" height="12" rx="1" fill="#222"/>
+<!-- jalur uap-kondensat: lengan samping, kondensor, stem -->
+<path d="M263 128 H454 V162 M454 338 V392" class="tb" stroke="var(--st)" stroke-width="16"/><path d="M263 128 H454 V162 M454 338 V392" class="tb" stroke="var(--card)" stroke-width="12"/><path d="M263 128 H454 V162 M454 338 V392" class="tb" stroke="var(--gl)" stroke-width="12"/>
+<!-- 6 kondensor tegak -->
+<rect x="420" y="160" width="68" height="180" rx="4" class="gs"/>
+<g id="coilB"></g><path d="M454 150 V350" class="tb" stroke="var(--st)" stroke-width="16"/><path d="M454 150 V350" class="tb" stroke="var(--card)" stroke-width="12"/><path d="M454 150 V350" class="tb" stroke="var(--gl)" stroke-width="12"/><g id="coilF"></g>
+<path d="M488 175 H494 M488 325 H494" class="ln" stroke-width="8"/>
+<path d="M490 175 H560" class="tb" stroke="var(--st)" stroke-width="8"/><path d="M490 175 H560" class="tb" stroke="#cfe6fb" stroke-width="4.5"/>
+<path d="M560 325 H490" class="tb" stroke="var(--st)" stroke-width="8"/><path d="M560 325 H490" class="tb" stroke="#cfe6fb" stroke-width="4.5"/>
+<text x="498" y="166">Air keluar</text><text x="498" y="316">Air masuk</text><g id="wd"></g>
+<rect x="416" y="244" width="76" height="12" rx="2" fill="var(--st)" opacity=".35" class="ln"/>
+<!-- adaptor cow + 3 labu (4) -->
+<path d="M454 372 H470" class="tb" stroke="var(--st)" stroke-width="10"/>
+<path d="M392 400 H516" class="tb" stroke="var(--st)" stroke-width="16"/><path d="M392 400 H516" class="tb" stroke="var(--card)" stroke-width="12"/><path d="M392 400 H516" class="tb" stroke="var(--gl)" stroke-width="12"/>
+<g id="rc"></g>
+<rect x="352" y="468" width="200" height="78" rx="6" fill="rgba(140,200,255,.2)" stroke="var(--st)" stroke-width="1.8"/>
+<g fill="#fff" opacity=".65"><rect x="366" y="520" width="9" height="8"/><rect x="420" y="528" width="9" height="8"/><rect x="480" y="522" width="9" height="8"/><rect x="530" y="526" width="9" height="8"/><rect x="396" y="506" width="8" height="7"/><rect x="505" y="508" width="8" height="7"/></g>
+<g id="dr"></g>
+<!-- selang vakum, manometer (10), perangkap (11), pompa (12) -->
+<path d="M466 372 H620 V262 H690 V285" fill="none" stroke="#6b7a70" stroke-width="5"/>
+<path d="M730 285 V262 H785 V470" fill="none" stroke="#6b7a70" stroke-width="5"/>
+<circle cx="620" cy="220" r="16" fill="var(--card)" class="ln"/><line x1="620" y1="236" x2="620" y2="262" class="ln"/><line id="ndl" x1="620" y1="220" x2="620" y2="208" stroke="#d33" stroke-width="2"/><text x="620" y="196" text-anchor="middle" id="dP">760 mmHg</text>
+<rect x="660" y="300" width="100" height="110" rx="6" fill="rgba(140,200,255,.2)" stroke="var(--st)" stroke-width="1.8"/>
+<path d="M690 285 V365 Q690 388 710 388 Q730 388 730 365 V285" class="tb" stroke="var(--st)" stroke-width="12"/><path d="M690 285 V365 Q690 388 710 388 Q730 388 730 365 V285" class="tb" stroke="var(--card)" stroke-width="8"/>
+<circle id="tr" cx="710" cy="380" r="5" fill="#7fbfff" opacity="0"/>
+<rect x="720" y="470" width="72" height="60" rx="6" class="ln" fill="var(--card)"/><text x="736" y="498">Pompa</text><text x="736" y="512">vakum</text>
+<!-- nomor penanda -->
+<g class="bd"><circle cx="53" cy="466" r="9" fill="#2f7d5b"/><text x="53" y="470" text-anchor="middle">1</text>
+<circle cx="138" cy="533" r="9" fill="#2f7d5b"/><text x="138" y="537" text-anchor="middle">2</text>
+<circle cx="146" cy="440" r="9" fill="#2f7d5b"/><text x="146" y="444" text-anchor="middle">3</text>
+<circle cx="572" cy="490" r="9" fill="#2f7d5b"/><text x="572" y="494" text-anchor="middle">4</text>
+<circle cx="264" cy="260" r="9" fill="#2f7d5b"/><text x="264" y="264" text-anchor="middle">5</text>
+<circle cx="400" cy="292" r="9" fill="#2f7d5b"/><text x="400" y="296" text-anchor="middle">6</text>
+<circle cx="284" cy="108" r="9" fill="#2f7d5b"/><text x="284" y="112" text-anchor="middle">7</text>
+<circle cx="282" cy="49" r="9" fill="#2f7d5b"/><text x="282" y="53" text-anchor="middle">8</text>
+<circle cx="520" cy="250" r="9" fill="#2f7d5b"/><text x="520" y="254" text-anchor="middle">9</text>
+<circle cx="652" cy="220" r="9" fill="#2f7d5b"/><text x="652" y="224" text-anchor="middle">10</text>
+<circle cx="645" cy="340" r="9" fill="#2f7d5b"/><text x="645" y="344" text-anchor="middle">11</text>
+<circle cx="704" cy="500" r="9" fill="#2f7d5b"/><text x="704" y="504" text-anchor="middle">12</text></g>
+</svg>
+<div class="leg" style="margin-top:8px"><div><b>1</b>Thermo control (pengatur suhu)</div><div><b>2</b>Pemanas + stirrer</div><div><b>3</b>Labu bahan (500 mL minyak nampu)</div>
+<div><b>4</b>Adaptor cow + 3 labu penerima (F1.1, F1.2, F1.3) dalam penangas es</div><div><b>5</b>Kolom packing</div><div><b>6</b>Kondensor koil: uap lewat pipa tengah, air mengalir spiral dari bawah ke atas di koil sekeliling pipa</div>
+<div><b>7</b>Pengatur rasio reflux</div><div><b>8</b>Still head + termometer</div><div><b>9</b>Selang air pendingin</div>
+<div><b>10</b>Manometer</div><div><b>11</b>Perangkap dingin</div><div><b>12</b>Pompa vakum</div></div></div>
+
+<div class="card"><b>Mengapa penampung distilat dibuat tertutup?</b><ul style="margin:6px 0 0;padding-left:20px">
+<li>Minyak atsiri bersifat volatil, mudah menguap apalagi di bawah vakum. Penampung terbuka seperti gelas ukur akan memutus vakum dan distilat ikut menguap.</li>
+<li>Distilat masuk ke <b>labu penerima bersambungan gelas asah</b> (diklem) yang <b>didinginkan dalam penangas es</b> agar uap mengembun penuh.</li>
+<li><b>Adaptor cow</b> (3 labu) diputar untuk berpindah F1.1 &rarr; F1.2 &rarr; F1.3 tanpa membuka sistem, sehingga vakum stabil.</li>
+<li><b>Perangkap dingin</b> di antara adaptor dan pompa menangkap uap yang lolos untuk melindungi pompa. Jurnal melaporkan 8,2% tertinggal di alat tanpa merinci penyebabnya.</li></ul></div>
+
+
+<div class="card g">
+<div><button class="p" id="go">Mulai</button> <button id="rs">Reset</button>
+<label>Kecepatan simulasi</label><select id="sp"><option value="5">5 menit/detik</option><option value="20" selected>20 menit/detik</option><option value="60">60 menit/detik</option></select>
+<label><input type="checkbox" id="au" checked> Otomatis (naik suhu bila 30 menit tanpa distilat)</label></div>
+<div><label>Setpoint pemanas: <span id="tv">141</span> &deg;C</label><input type="range" id="T" min="100" max="175" value="141">
+<label>Tekanan setpoint: <span id="pv">130</span> mmHg</label><input type="range" id="P" min="110" max="150" value="130">
+<label>Rasio reflux R: <span id="rv">0</span> (jurnal: 0)</label><input type="range" id="R" min="0" max="8" value="0"></div>
+<div><div>Waktu: <span class="v" id="tm">0</span> menit</div><div>Tekanan aktual: <span class="v" id="pa">760</span> mmHg</div>
+<div>Suhu labu: <span class="v" id="tp">25</span> &deg;C &middot; Suhu kepala: <span class="v" id="th">25</span> &deg;C</div>
+<div>Fraksi aktif: <span class="v" id="fa">-</span></div><div>Sisa di labu: <span class="v" id="pl">500</span> mL</div>
+<div>Rendemen linalool: <span class="v" id="yl">0</span>%</div></div></div>
+
+<div class="card"><svg viewBox="0 0 600 130"><rect x="30" y="8" width="560" height="100" fill="none" stroke="var(--bd)"/>
+<polyline id="c1" fill="none" stroke="#e0703a" stroke-width="2"/><polyline id="c2" fill="none" stroke="#3a8fe0" stroke-width="2"/><polyline id="c3" fill="none" stroke="#2f9d5b" stroke-width="2"/>
+<text x="34" y="124">Waktu (menit) &middot; oranye: suhu labu &middot; biru: suhu kepala &middot; hijau: distilat (0-349 mL)</text></svg></div>
+
+<div class="card tw"><table><tr><th>Fraksi</th><th>Suhu labu</th><th>Volume</th><th>Indeks bias</th><th>Rotasi optik</th><th>Bobot jenis</th><th>Warna</th></tr>
+<tr><td>F1.1</td><td>140-150 &deg;C</td><td id="v0">0</td><td class="r0">-</td><td class="r0">-</td><td class="r0">-</td><td class="r0">-</td></tr>
+<tr><td>F1.2</td><td>150-155 &deg;C</td><td id="v1">0</td><td class="r1">-</td><td class="r1">-</td><td class="r1">-</td><td class="r1">-</td></tr>
+<tr><td>F1.3</td><td>156-160 &deg;C</td><td id="v2">0</td><td class="r2">-</td><td class="r2">-</td><td class="r2">-</td><td class="r2">-</td></tr>
+<tr><td>F2 residu</td><td>&gt;160 &deg;C</td><td id="v3">-</td><td class="r3">-</td><td class="r3">-</td><td class="r3">-</td><td class="r3">-</td></tr></table>
+<p class="mu">Sifat fisik dari Tabel 3 jurnal muncul setelah fraksi selesai. Kadar GC-FID hanya dilaporkan untuk F1.2: 90,92% (bahan baku 80,90%).</p></div>
+<div class="card"><b>Log</b><div id="log"></div></div>
+<div class="card mu">Volume kumulatif mengikuti data jurnal terhadap suhu labu. Dinamika pemanasan, laju distilat, penurunan tekanan, dan suhu kepala adalah pendekatan sederhana. Reflux hanya memperlambat laju distilat (ilustratif).</div>
+</main>
+<script>
+const $=i=>document.getElementById(i),N="http://www.w3.org/2000/svg",cl=x=>Math.max(0,Math.min(1,x)),cp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const Vt=T=>130*cl((T-140)/10)+118*cl((T-150)/5)+101*cl((T-156)/4);
+const CAP=[130,118,101],ST=[141,150,155,160,165],RX=[392,454,516],FCOL=["#8fdcae","#3fae78","#2f8a5f"];
+const PR=[["1,4650","-18,84","0,8601","Jernih"],["1,4620","-19,80","0,8647","Jernih"],["1,4649","-19,80","0,8688","Jernih"],["1,4831","-10,78","0,9226","Kuning"]];
+const mk=(p,t,a)=>{const e=document.createElementNS(N,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e};
+RX.forEach((x,i)=>{const g=$("rc");
+mk(g,"circle",{cx:x,cy:475,r:30,class:"gs"});
+mk(g,"clipPath",{id:"k"+i}).appendChild(Object.assign(document.createElementNS(N,"circle"),{})).setAttribute("cx",x);
+const c=$("k"+i).firstChild;c.setAttribute("cy",475);c.setAttribute("r",29);
+mk(g,"rect",{id:"fl"+i,x:x-35,y:503,width:70,height:0,fill:FCOL[i],opacity:.92,"clip-path":"url(#k"+i+")"});
+mk(g,"rect",{id:"nk"+i,x:x-9,y:404,width:18,height:42,fill:"var(--gl)",stroke:"var(--st)","stroke-width":1.8});
+mk(g,"rect",{x:x-11,y:424,width:22,height:8,rx:2,fill:"#e0b84a",stroke:"var(--st)"});
+mk(g,"text",{x:x-15,y:430,"text-anchor":"end"}).textContent="F1."+(i+1)});
+const sg=(P,i)=>Math.hypot(P[i+1][0]-P[i][0],P[i+1][1]-P[i][1]);
+function along(P,s){let L=0;for(let i=0;i<P.length-1;i++)L+=sg(P,i);s=((s%L)+L)%L;let i=0;while(i<P.length-2&&s>sg(P,i)){s-=sg(P,i);i++}const d=sg(P,i)||1,f=Math.min(1,s/d);return[P[i][0]+(P[i+1][0]-P[i][0])*f,P[i][1]+(P[i+1][1]-P[i][1])*f]}
+const plen=P=>{let L=0;for(let i=0;i<P.length-1;i++)L+=sg(P,i);return L};
+const CP=[];for(let i=0;i<=280;i++){const t=i/280,th=t*Math.PI*14;CP.push([454+24*Math.cos(th),325-150*t,Math.sin(th)])}
+{const runs=[];let c=null;for(let i=0;i<280;i++){const f=(CP[i][2]+CP[i+1][2])/2>0;if(!c||c.f!=f){c={f,d:"M"+CP[i][0].toFixed(1)+" "+CP[i][1].toFixed(1)};runs.push(c)}c.d+=" L"+CP[i+1][0].toFixed(1)+" "+CP[i+1][1].toFixed(1)}
+const tube=(g,d,o)=>{mk(g,"path",{d,class:"tb",stroke:"var(--st)","stroke-width":5,opacity:o});mk(g,"path",{d,class:"tb",stroke:"#cfe6fb","stroke-width":2.6,opacity:o})};
+const B=$("coilB"),F=$("coilF");runs.filter(r=>!r.f).forEach(r=>tube(B,r.d,.45));tube(F,"M488 325 H478",1);tube(F,"M478 175 H488",1);runs.filter(r=>r.f).forEach(r=>tube(F,r.d,1))}
+const WP=[[560,325],[488,325],...CP.map(p=>[p[0],p[1]]),[488,175],[560,175]],WL=plen(WP),VA=[[225,150],[225,128],[454,128],[454,235]];
+const WD=[...Array(26)].map(()=>mk($("wd"),"circle",{r:2.4,fill:"#2a7fd4",opacity:0}));
+const bub=[...Array(10)].map((_,i)=>mk($("bub"),"circle",{r:2+i%3,fill:"#fff",opacity:0}));
+const vd=[...Array(6)].map(()=>mk($("vd"),"circle",{r:2.5,fill:"#4aa3ff",opacity:0}));
+const va=[...Array(5)].map(()=>mk($("vd"),"circle",{r:2.5,fill:"#4aa3ff",opacity:0}));
+const dr=[0,1,2].map(()=>mk($("dr"),"circle",{r:2.8,fill:"#4aa3ff",opacity:0}));
+let S,run=false,last=0,tm=0;
+const potv=()=>500-S.C-41*S.C/349,cur=()=>S.C<130?0:S.C<248?1:2;
+function reset(){S={t:0,Tp:25,Th:25,P:760,C:0,Ts:+$("T").value,stg:0,stall:0,idx:-1,act:false,done:false,h:[],lh:-9,pump:false,fin:0};
+if($("au").checked){S.Ts=ST[0];$("T").value=ST[0]}
+$("log").innerHTML="";document.querySelectorAll("[class^=r]").forEach(e=>e.textContent="-");$("v3").textContent="-";run=false;$("go").textContent="Mulai";log("Siap. 500 mL minyak nampu + pengaduk dimasukkan ke labu alas bulat.");draw()}
+function log(m){const d=document.createElement("div");d.textContent="["+Math.round(S.t)+" mnt] "+m;$("log").prepend(d)}
+function step(dm){const Ps=+$("P").value,R=+$("R").value;
+if(S.pump)S.P+=(Ps-S.P)*(1-Math.exp(-dm/3));
+const vac=S.P<=Ps+15;S.Tp+=cp((S.Ts-S.Tp)*.2,-2,vac?2.5:.4)*dm;
+const rate=vac?6*(1+(150-Ps)/80)/(1+R):0,tg=Vt(S.Tp);
+S.act=S.C<tg-.05&&S.C<349;if(S.act)S.C=Math.min(S.C+Math.min(tg-S.C,rate*dm),349);
+const tt=S.act?S.Tp-9:25+(S.Tp-25)*.5;S.Th+=(tt-S.Th)*(1-Math.exp(-dm/2));
+const ix=cur();
+if(S.C>.5&&S.idx<0){log("Distilat pertama menetes ke labu penerima F1.1 (tertutup, dalam penangas es)");S.idx=0}
+if(ix!=S.idx&&S.idx>=0){log("Fraksi "+(S.idx+1)+" selesai ("+CAP[S.idx]+" mL). Adaptor cow diputar ke labu penerima F1."+(ix+1)+", vakum tetap terjaga");S.idx=ix}
+if(S.C>=349&&!S.fin){S.fin=1;log("Fraksi F1.3 selesai; total linalool 349 mL.")}
+if(!S.act&&Math.abs(S.Tp-S.Ts)<.6&&vac&&S.Tp>100){S.stall+=dm;
+if(S.stall>=30){S.stall=0;if($("au").checked){if(S.stg<ST.length-1){S.stg++;S.Ts=ST[S.stg];$("T").value=S.Ts;log("30 menit tanpa distilat baru, setpoint naik ke "+S.Ts+" \u00b0C")}else{S.done=true;run=false;$("go").textContent="Mulai";log("Selesai. Residu F2 = 110 mL di labu; 41 mL tertinggal di alat.")}}}}else if(S.act)S.stall=0;
+S.t+=dm;if(S.t-S.lh>=1){S.lh=S.t;S.h.push([S.t,S.Tp,S.Th,S.C])}}
+function draw(){const Ps=+$("P").value,f=cl(potv()/500);
+$("dSet").textContent="SET "+Math.round(S.Ts);$("dPot").textContent="PV "+S.Tp.toFixed(1);
+$("tv").textContent=Math.round(S.Ts);$("pv").textContent=Ps;$("rv").textContent=$("R").value;
+$("dHead").textContent="T "+S.Th.toFixed(1)+"\u00b0C";$("dP").textContent=S.P.toFixed(0)+" mmHg";
+$("tm").textContent=Math.round(S.t);$("pa").textContent=S.P.toFixed(0);$("tp").textContent=S.Tp.toFixed(1);$("th").textContent=S.Th.toFixed(1);
+$("pl").textContent=potv().toFixed(0);$("yl").textContent=(S.C/5).toFixed(1);
+$("fa").textContent=S.done?"selesai":S.act?"F1."+(cur()+1):"-";
+$("ndl").setAttribute("transform","rotate("+(cl(S.P/760)*270-135)+" 620 220)");
+$("glow").setAttribute("opacity",run?cl((S.Tp-25)/140)*.9+.1:0);
+$("liq").setAttribute("y",503-75*f);
+const c1=[240,220,110],c2=[214,150,50],k=1-f;$("liq").setAttribute("fill","rgb("+c1.map((v,i)=>Math.round(v+(c2[i]-v)*k)).join(",")+")");
+const v=[Math.min(S.C,130),cp(S.C-130,0,118),cp(S.C-248,0,101)],ix=cur();
+v.forEach((x,i)=>{$("v"+i).textContent=x.toFixed(0)+" mL";const done=(i==0&&S.C>=130)||(i==1&&S.C>=248)||(i==2&&S.C>=349);
+document.querySelectorAll(".r"+i).forEach((e,j)=>e.textContent=done?PR[i][j]:"-");
+const h=x/CAP[i]*40;$("fl"+i).setAttribute("height",h);$("fl"+i).setAttribute("y",503-h)});
+[0,1,2].forEach(i=>{const n=$("nk"+i),a=i==ix&&S.C>0&&!S.done;n.setAttribute("stroke",a?"#d33":"var(--st)");n.setAttribute("stroke-width",a?3:1.8)});
+if(S.done){$("v3").textContent="110 mL";document.querySelectorAll(".r3").forEach((e,j)=>e.textContent=PR[3][j])}
+$("tr").setAttribute("opacity",cl(S.C/349)*.8);
+const vh=S.act?214*cl((S.Th-30)/120):0;$("vap").setAttribute("height",vh);$("vap").setAttribute("y",368-vh);
+const ln=(id,fn)=>$(id).setAttribute("points",S.h.map(fn).join(" ")),X=t=>30+560*Math.min(1,t/260);
+ln("c1",p=>X(p[0])+","+(108-100*(p[1]-25)/150));ln("c2",p=>X(p[0])+","+(108-100*(p[2]-25)/150));ln("c3",p=>X(p[0])+","+(108-100*p[3]/349))}
+function anim(ts){const d=Math.min(.1,(ts-last)/1000||0);last=ts;tm+=d;
+if(run){let dm=d*+$("sp").value;while(dm>0){const s=Math.min(.5,dm);step(s);dm-=s}}
+const a=run?cl((S.Tp-90)/60):0,on=run&&S.act;
+bub.forEach((b,i)=>{b.setAttribute("cx",195+(i*13)%60+Math.sin(tm*3+i)*3);b.setAttribute("cy",490-((tm*35+i*11)%45));b.setAttribute("opacity",a*.7)});
+$("stir").setAttribute("transform","translate(225 495) scale("+(run?Math.cos(tm*10):1)+" 1)");
+vd.forEach((p,i)=>{p.setAttribute("cx",225+Math.sin(tm*4+i)*8);p.setAttribute("cy",364-((tm*50+i*36)%210));p.setAttribute("opacity",on?.8:0)});
+va.forEach((p,i)=>{const q=along(VA,tm*90+i*80);p.setAttribute("cx",q[0]);p.setAttribute("cy",q[1]);p.setAttribute("opacity",on?.8:0)});
+const xa=RX[cur()],DP=[[454,170],[454,400],[xa,400],[xa,458]],DL=plen(DP);
+dr.forEach((p,i)=>{const q=along(DP,tm*90+i*DL/3);p.setAttribute("cx",q[0]);p.setAttribute("cy",q[1]);p.setAttribute("opacity",on?.9:0)});
+WD.forEach((c,i)=>{const q=along(WP,tm*140+i*WL/WD.length);c.setAttribute("cx",q[0]);c.setAttribute("cy",q[1]);c.setAttribute("opacity",run?.95:0)});
+draw();requestAnimationFrame(anim)}
+$("go").onclick=()=>{if(S.done)reset();run=!run;$("go").textContent=run?"Jeda":"Lanjut";if(run&&!S.pump){S.pump=true;log("Air pendingin dialirkan, pompa vakum dinyalakan; pemanas bekerja penuh setelah vakum tercapai.")}};
+$("rs").onclick=reset;$("T").oninput=()=>{S.Ts=+$("T").value};
+$("au").onchange=()=>{if($("au").checked)S.stg=Math.max(0,ST.findIndex(x=>x>=S.Ts))};
+reset();requestAnimationFrame(anim);
+</script></body></html>
